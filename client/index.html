@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d16">
+    <title>Dhiyan's Real Estate | Property Valuation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="navbar">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">D</span>
+                <span>
+                    <strong>Dhiyan's Real Estate</strong>
+                    <small>INTELLIGENT PROPERTY VALUATION</small>
+                </span>
+            </a>
+
+            <div class="api-indicator">
+                <span class="status-dot" id="apiDot"></span>
+                <span id="apiStatus">Connecting to valuation engine...</span>
+            </div>
+        </header>
+
+        <main class="hero-grid">
+            <section class="form-panel">
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    BANGALORE PROPERTY INTELLIGENCE
+                </div>
+
+                <h1>Know what your<br>property is <span>worth.</span></h1>
+
+                <p class="intro">
+                    Get an estimated property valuation using your property's
+                    location, size and configuration.
+                </p>
+
+                <form id="valuationForm">
+                    <div class="field">
+                        <div class="field-heading">
+                            <label for="location">Property location</label>
+                            <span class="field-note">Bangalore</span>
+                        </div>
+
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            list="locationOptions"
+                            placeholder="e.g. Whitefield"
+                            autocomplete="off"
+                            required
+                        >
+                        <datalist id="locationOptions"></datalist>
+                        <small class="field-help">
+                            Select a location supported by the model.
+                        </small>
+                    </div>
+
+                    <div class="field">
+                        <div class="field-heading">
+                            <label for="total_sqft">Built-up area</label>
+                            <span class="unit-label">SQ. FT.</span>
+                        </div>
+
+                        <div class="area-input-wrap">
+                            <input
+                                type="number"
+                                id="total_sqft"
+                                name="total_sqft"
+                                min="100"
+                                max="50000"
+                                step="1"
+                                placeholder="1200"
+                                required
+                            >
+                            <span class="input-suffix">sq ft</span>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="areaSlider"
+                            min="100"
+                            max="5000"
+                            step="50"
+                            value="1200"
+                            aria-label="Adjust built-up area"
+                        >
+
+                        <div class="range-labels">
+                            <span>100 sq ft</span>
+                            <span>5,000 sq ft</span>
+                        </div>
+
+                        <div class="preset-row">
+                            <button type="button" class="preset" data-area="800">800</button>
+                            <button type="button" class="preset" data-area="1200">1,200</button>
+                            <button type="button" class="preset" data-area="1500">1,500</button>
+                            <button type="button" class="preset" data-area="2000">2,000</button>
+                        </div>
+                    </div>
+
+                    <div class="selection-grid">
+                        <div class="field">
+                            <div class="field-heading">
+                                <label>BHK configuration</label>
+                            </div>
+
+                            <div class="choice-row" id="bhkChoices">
+                                <button type="button" class="choice" data-value="1">1</button>
+                                <button type="button" class="choice active" data-value="2">2</button>
+                                <button type="button" class="choice" data-value="3">3</button>
+                                <button type="button" class="choice" data-value="4">4</button>
+                                <button type="button" class="choice" data-value="5">5+</button>
+                            </div>
+                            <input type="hidden" id="bhk" name="bhk" value="2">
+                        </div>
+
+                        <div class="field">
+                            <div class="field-heading">
+                                <label>Bathrooms</label>
+                            </div>
+
+                            <div class="choice-row" id="bathChoices">
+                                <button type="button" class="choice" data-value="1">1</button>
+                                <button type="button" class="choice active" data-value="2">2</button>
+                                <button type="button" class="choice" data-value="3">3</button>
+                                <button type="button" class="choice" data-value="4">4</button>
+                                <button type="button" class="choice" data-value="5">5+</button>
+                            </div>
+                            <input type="hidden" id="bath" name="bath" value="2">
+                        </div>
+                    </div>
+
+                    <p class="error-message" id="formError" role="alert"></p>
+
+                    <button type="submit" class="primary-button" id="estimateButton">
+                        <span id="buttonText">Calculate property value</span>
+                        <span class="button-arrow" aria-hidden="true">↗</span>
+                    </button>
+
+                    <p class="disclaimer">
+                        This is a model-based estimate, not a formal property appraisal.
+                    </p>
+                </form>
+            </section>
+
+            <aside class="visual-panel">
+                <div class="visual-glow"></div>
+
+                <div class="visual-topline">
+                    <span class="visual-tag">PROPERTY INTELLIGENCE</span>
+                    <span class="visual-index">01 / 02</span>
+                </div>
+
+                <div class="building-art" aria-hidden="true">
+                    <div class="sun-orb"></div>
+                    <div class="building building-back">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="building building-front">
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="building-ground"></div>
+                </div>
+
+                <div class="visual-copy">
+                    <span class="mini-label">A SMARTER WAY TO ESTIMATE</span>
+                    <h2>Real estate decisions,<br>backed by data.</h2>
+                    <p>
+                        Explore an estimated value based on the property
+                        characteristics supported by your trained model.
+                    </p>
+                </div>
+
+                <div class="visual-footer">
+                    <div>
+                        <span class="footer-number">01</span>
+                        <span>Enter details</span>
+                    </div>
+                    <span class="footer-connector"></span>
+                    <div>
+                        <span class="footer-number">02</span>
+                        <span>View valuation</span>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="page-footer">
+            <span>DHİYAN'S REAL ESTATE</span>
+            <span>PROPERTY ESTIMATES · BANGALORE</span>
+        </footer>
+    </div>
+</body>
+</html>

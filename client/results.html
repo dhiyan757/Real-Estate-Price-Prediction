@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d16">
+    <title>Your Property Valuation | Dhiyan's Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="results.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="navbar">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">D</span>
+                <span>
+                    <strong>Dhiyan's Real Estate</strong>
+                    <small>INTELLIGENT PROPERTY VALUATION</small>
+                </span>
+            </a>
+
+            <a href="index.html" class="nav-link">← New estimate</a>
+        </header>
+
+        <main class="results-layout">
+            <section class="result-heading">
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    YOUR VALUATION REPORT
+                </div>
+
+                <h1>Your property,<br><span>valued with data.</span></h1>
+
+                <p class="intro">
+                    Here's the estimated value for the property details you provided.
+                </p>
+            </section>
+
+            <section class="valuation-card">
+                <div class="valuation-card-top">
+                    <span class="visual-tag">ESTIMATED MARKET VALUE</span>
+                    <span class="report-badge">
+                        <span class="status-dot"></span>
+                        MODEL ESTIMATE
+                    </span>
+                </div>
+
+                <div class="price-block">
+                    <span class="currency-symbol">₹</span>
+                    <span class="price-value" id="priceValue">--</span>
+                    <span class="price-unit">LAKHS</span>
+                </div>
+
+                <p class="crore-value" id="croreValue"></p>
+
+                <div class="result-divider"></div>
+
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="metric-label">ESTIMATED PRICE / SQ FT</span>
+                        <strong id="pricePerSqft">--</strong>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">BUILT-UP AREA</span>
+                        <strong id="resultArea">--</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="property-summary">
+                <div class="section-heading">
+                    <div>
+                        <span class="mini-label">PROPERTY OVERVIEW</span>
+                        <h2>Your property snapshot</h2>
+                    </div>
+                    <span class="snapshot-icon" aria-hidden="true">⌂</span>
+                </div>
+
+                <div class="snapshot-grid">
+                    <div class="snapshot-item">
+                        <span class="snapshot-label">LOCATION</span>
+                        <strong id="resultLocation">--</strong>
+                    </div>
+                    <div class="snapshot-item">
+                        <span class="snapshot-label">CONFIGURATION</span>
+                        <strong id="resultBhk">--</strong>
+                    </div>
+                    <div class="snapshot-item">
+                        <span class="snapshot-label">BATHROOMS</span>
+                        <strong id="resultBath">--</strong>
+                    </div>
+                    <div class="snapshot-item">
+                        <span class="snapshot-label">AREA</span>
+                        <strong id="resultAreaDetail">--</strong>
+                    </div>
+                </div>
+            </section>
+
+            <div class="result-actions">
+                <a href="index.html" class="primary-button action-link">
+                    Edit property details <span class="button-arrow">↗</span>
+                </a>
+                <button type="button" class="secondary-button" id="newEstimateButton">
+                    Start a new estimate
+                </button>
+            </div>
+
+            <p class="disclaimer result-disclaimer">
+                The displayed amount is a prediction from a machine-learning model.
+                Actual transaction prices can vary with property condition, amenities,
+                legal status, market demand and other factors.
+            </p>
+        </main>
+
+        <footer class="page-footer">
+            <span>DHİYAN'S REAL ESTATE</span>
+            <span>PROPERTY ESTIMATES · BANGALORE</span>
+        </footer>
+    </div>
+</body>
+</html>
